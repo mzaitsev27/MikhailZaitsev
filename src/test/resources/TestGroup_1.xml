@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Test All">
+<suite name="Group_1_Test">
 
-    <test name="Test All">
+    <test name="Group_1_Test">
         <classes>
 
             <class name="Tests.SumTest">
