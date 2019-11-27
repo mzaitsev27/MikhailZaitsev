@@ -51,7 +51,7 @@ public class TestEx2 extends AbstractBaseTest {
         driver.findElement(By.className("dropdown-toggle")).click();
         List<WebElement> header = driver.findElements(By.tagName("li"));
         for (int i = 0; i < header.size(); i++) {
-            if (header.get(i).getText().equals("DIFFERENT ELEMENTS")) {
+            if ("DIFFERENT ELEMENTS".equals(header.get(i).getText())) {
                 header.get(i).click();
                 break;
             }
