@@ -67,20 +67,20 @@ public class TestEx2 extends AbstractBaseTest {
 
         // 4 radios
         List<WebElement> radios = driver.findElements(By.className("label-radio"));
-        assertEquals(radios.size(), 4);
+        softAssert.assertEquals(radios.size(), 4);
         for (int i = 0; i < checkboxes.size(); i++) {
-            assertTrue(radios.get(i).isDisplayed());
+            softAssert.assertTrue(radios.get(i).isDisplayed());
         }
 
         // dropdown
         WebElement dropdown = driver.findElement(By.tagName("select"));
-        assertTrue(dropdown.isDisplayed());
+        softAssert.assertTrue(dropdown.isDisplayed());
 
         // 2 buttons
         List<WebElement> buttons = driver.findElements(By.className("uui-button"));
         for (int i = 0; i < buttons.size(); i++) {
             if (buttons.get(i).getAttribute("value").equals("Default Button") || buttons.get(i).getAttribute("value").equals("Button")) {
-                assertTrue(buttons.get(i).isDisplayed());
+                softAssert.assertTrue(buttons.get(i).isDisplayed());
             }
         }
         // --------------------------------------------------------------------------------
