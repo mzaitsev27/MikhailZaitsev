@@ -51,7 +51,7 @@ public class TestEx2 extends AbstractBaseTest {
         driver.findElement(By.className("dropdown-toggle")).click();
         List<WebElement> header = driver.findElements(By.tagName("li"));
         for (int i = 0; i < header.size(); i++) {
-            if (header.get(i).getText().equals("DIFFERENT ELEMENTS")) {
+            if ("DIFFERENT ELEMENTS".equals(header.get(i).getText())) {
                 header.get(i).click();
                 break;
             }
@@ -111,9 +111,9 @@ public class TestEx2 extends AbstractBaseTest {
             for (int j = 0; j < logs.size(); j++) {
                 if (logs.get(j).getText().contains(checkboxes.get(i).getText())) {
                     if (logs.get(j).getText().endsWith("true")) {
-                        assertEquals(checkboxesInput.get(i).isSelected(), true);
+                        softAssert.assertEquals(checkboxesInput.get(i).isSelected(), true);
                     } else {
-                        assertEquals(checkboxesInput.get(i).isSelected(), false);
+                        softAssert.assertEquals(checkboxesInput.get(i).isSelected(), false);
                         break;
                     }
                 }
@@ -137,9 +137,9 @@ public class TestEx2 extends AbstractBaseTest {
         for (int i = 0; i < radios.size(); i++) {
             for (int j = logs.size() - 1; j > 0; j--) {
                 if (logs.get(j).getText().contains(radios.get(i).getText())) {
-                    assertEquals(radioInput.get(i).isSelected(), true);
+                    softAssert.assertEquals(radioInput.get(i).isSelected(), true);
                 } else {
-                    assertEquals(radioInput.get(i).isSelected(), false);
+                    softAssert.assertEquals(radioInput.get(i).isSelected(), false);
                 }
                 break;
             }
@@ -187,7 +187,6 @@ public class TestEx2 extends AbstractBaseTest {
                 }
             }
         }
-
         softAssert.assertAll();
     }
 }
