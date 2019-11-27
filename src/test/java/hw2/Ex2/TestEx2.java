@@ -1,5 +1,6 @@
 package hw2.Ex2;
 
+import hw2.AbstractBaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,12 +14,10 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class TestEx2 {
+public class TestEx2 extends AbstractBaseTest {
     @Test
     public void ex2() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+
 
         driver.get("https://epam.github.io/JDI/index.html");
         SoftAssert softAssert = new SoftAssert();
@@ -28,10 +27,7 @@ public class TestEx2 {
         // -----------------------------------------------------------
 
         // Assert User name expected "PITER CHAILOVSKII
-        driver.findElement(By.id("user-icon")).click();
-        driver.findElement(By.cssSelector("#name")).sendKeys("epam");
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("1234");
-        driver.findElement(By.id("login-button")).click();
+        login();
         WebElement loginedUserName = driver.findElement(By.id("user-name"));
         assertEquals(loginedUserName.getText().trim(), "PITER CHAILOVSKII");
         // -----------------------------------------------------------
@@ -63,9 +59,9 @@ public class TestEx2 {
 
         // Assert 4 checkboxes at "Different Eelements" page
         List<WebElement> checkboxes = driver.findElements(By.xpath("//label[@class = 'label-checkbox']"));
-        assertEquals(checkboxes.size(), 4);
+        softAssert.assertEquals(checkboxes.size(), 4);
         for (int i = 0; i < checkboxes.size(); i++) {
-            assertTrue(checkboxes.get(i).isDisplayed());
+            softAssert.assertTrue(checkboxes.get(i).isDisplayed());
         }
 
 
@@ -101,12 +97,10 @@ public class TestEx2 {
 
 
         // Select Water and Wind checkboxes
-        for (int i = 0; i < checkboxes.size(); i++) {
-            if (checkboxes.get(i).getText().equals("Water") || checkboxes.get(i).getText().equals("Wind")) {
-                checkboxes.get(i).click();
-            }
-        }
-
+        WebElement waterCheckbox = driver.findElement(By.xpath("//label[@class = 'label-checkbox'][position() = 1]"));
+        WebElement windCheckbox = driver.findElement(By.xpath("//label[@class = 'label-checkbox'][position() = 3]"));
+        waterCheckbox.click();
+        windCheckbox.click();
         // -----------------------------------------------------------------------------------------------------
 
         List<WebElement> logs = driver.findElements(By.xpath(".//li[contains(text(),\"changed\")]"));
@@ -117,9 +111,9 @@ public class TestEx2 {
             for (int j = 0; j < logs.size(); j++) {
                 if (logs.get(j).getText().contains(checkboxes.get(i).getText())) {
                     if (logs.get(j).getText().endsWith("true")) {
-                        softAssert.assertEquals(checkboxesInput.get(i).isSelected(), true);
+                        assertEquals(checkboxesInput.get(i).isSelected(), true);
                     } else {
-                        softAssert.assertEquals(checkboxesInput.get(i).isSelected(), false);
+                        assertEquals(checkboxesInput.get(i).isSelected(), false);
                         break;
                     }
                 }
@@ -143,9 +137,9 @@ public class TestEx2 {
         for (int i = 0; i < radios.size(); i++) {
             for (int j = logs.size() - 1; j > 0; j--) {
                 if (logs.get(j).getText().contains(radios.get(i).getText())) {
-                    softAssert.assertEquals(radioInput.get(i).isSelected(), true);
+                    assertEquals(radioInput.get(i).isSelected(), true);
                 } else {
-                    softAssert.assertEquals(radioInput.get(i).isSelected(), false);
+                    assertEquals(radioInput.get(i).isSelected(), false);
                 }
                 break;
             }
@@ -173,17 +167,16 @@ public class TestEx2 {
         }
 
         // Unselect checkboxes "Water" and "Wind"
-        for (int i = 0; i < checkboxes.size(); i++) {
-            if (checkboxes.get(i).getText().equals("Water") || checkboxes.get(i).getText().equals("Wind")) {
-                checkboxes.get(i).click();
-                WebElement newLog = driver.findElement(By.xpath(".//li[contains(text(),\"changed\")][position() =1]"));
-                logs.add(newLog);
-            }
-        }
+        waterCheckbox.click();
+        WebElement waterCheckboxLog = driver.findElement(By.xpath(".//li[contains(text(),\"changed\")][position() =1]"));
+        logs.add(waterCheckboxLog);
+        windCheckbox.click();
+        WebElement windCheckboxLog = driver.findElement(By.xpath(".//li[contains(text(),\"changed\")][position() =1]"));
+        logs.add(windCheckboxLog);
 
         // Assert that checkboxes "Water" and "Wind" unselected
         for (int i = 0; i < checkboxes.size(); i++) {
-            for (int j = logs.size() - 1; j > 0; j--) {
+            for (int j = logs.size() - 1; j >= 0 ; j--) {
                 if (logs.get(j).getText().contains(checkboxes.get(i).getText())) {
                     if (logs.get(j).getText().endsWith("true")) {
                         softAssert.assertEquals(checkboxesInput.get(i).isSelected(), true);
@@ -196,7 +189,6 @@ public class TestEx2 {
         }
 
         softAssert.assertAll();
-        driver.close();
     }
 }
 

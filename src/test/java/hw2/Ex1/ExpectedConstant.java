@@ -1,13 +1,13 @@
 package hw2.Ex1;
 
 public interface ExpectedConstant {
-    String textUnderFirstImage = "To include good practices\n" +
+    String firstImageText = "To include good practices\n" +
             "and ideas from successful\n" +
             "EPAM project";
-     String textUnderSecondImage = "To be flexible and\n" +
+     String secondImageText = "To be flexible and\n" +
              "customizable";
-     String textUnderThirdImage = "To be multiplatform";
-     String textUnderFourthImage = "Already have good base\n" +
+     String thirdImageText = "To be multiplatform";
+     String fourthImageText = "Already have good base\n" +
              "(about 20 internal and\n" +
              "some external projects),\n" +
              "wish to get more…";
