@@ -111,9 +111,9 @@ public class TestEx2 extends AbstractBaseTest {
             for (int j = 0; j < logs.size(); j++) {
                 if (logs.get(j).getText().contains(checkboxes.get(i).getText())) {
                     if (logs.get(j).getText().endsWith("true")) {
-                        assertEquals(checkboxesInput.get(i).isSelected(), true);
+                        softAssert.assertEquals(checkboxesInput.get(i).isSelected(), true);
                     } else {
-                        assertEquals(checkboxesInput.get(i).isSelected(), false);
+                        softAssert.assertEquals(checkboxesInput.get(i).isSelected(), false);
                         break;
                     }
                 }
@@ -137,9 +137,9 @@ public class TestEx2 extends AbstractBaseTest {
         for (int i = 0; i < radios.size(); i++) {
             for (int j = logs.size() - 1; j > 0; j--) {
                 if (logs.get(j).getText().contains(radios.get(i).getText())) {
-                    assertEquals(radioInput.get(i).isSelected(), true);
+                    softAssert.assertEquals(radioInput.get(i).isSelected(), true);
                 } else {
-                    assertEquals(radioInput.get(i).isSelected(), false);
+                    softAssert.assertEquals(radioInput.get(i).isSelected(), false);
                 }
                 break;
             }
