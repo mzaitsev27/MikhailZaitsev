@@ -3,9 +3,9 @@
 
     <test name="Ex1_Test">
         <classes>
-            <class name="hw2.Ex1.TestEx1">
+            <class name="hw3.StepsTests.Ex1_Test">
                 <methods>
-                    <include name="ex1"/>
+                    <include name="Ex1_Test"/>
                 </methods>
             </class>
         </classes>
