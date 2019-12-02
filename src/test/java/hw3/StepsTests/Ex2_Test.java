@@ -48,7 +48,6 @@ public class Ex2_Test extends AbstractBaseTest {
         differentElementsPageSteps.checkboxesStatusShouldBeCorrespondedWithLogs();
 
         differentElementsPageSteps.clickSelenRadio();
-        differentElementsPageSteps.clickSelenRadio();
         differentElementsPageSteps.radiosStatusShouldBeCorrespondedWithLogs();
 
         differentElementsPageSteps.clickYellowInDropdown();
