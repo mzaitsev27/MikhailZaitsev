@@ -33,7 +33,7 @@ public class HomePage extends AbstractBasePage {
     @FindBy(id = "user-name")
     private WebElement usernameLabel;
 
-    @FindBy(xpath = "//ul[@class = 'uui-navigation nav navbar-nav m-l8']/li/a")
+    @FindBy(xpath = "//ul[contains(@class, 'uui-navigation nav navbar-nav')]/li/a")
     private List<WebElement> headerSections;
 
     @FindBy(className = "benefit-icon")
@@ -99,7 +99,7 @@ public class HomePage extends AbstractBasePage {
         return images.size();
     }
 
-    public List getTextUnderImages() {
+    public List<String> getTextUnderImages() {
         List<String> underImagesTextString = new ArrayList<>();
         for (int i = 0; i < underImagesText.size(); i++) {
             underImagesTextString.add(underImagesText.get(i).getText());
