@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface ExpectedConstantForHW3 {
 
- List<String> EXPECTED_HEADER_SECTIONS_TEXT = new ArrayList<>(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
-
  List<String> EXPECTED_SERVICE_HEADER_MENU_ITEMS = new ArrayList<>(Arrays.asList("SUPPORT" , "DATES" , "SEARCH" , "COMPLEX TABLE" , "SIMPLE TABLE" ,
          "USER TABLE" , "TABLE WITH PAGES" , "DIFFERENT ELEMENTS" , "PERFORMANCE"));
 
