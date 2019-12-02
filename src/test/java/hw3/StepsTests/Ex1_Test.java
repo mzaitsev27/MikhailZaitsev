@@ -23,7 +23,7 @@ public class Ex1_Test extends AbstractBaseTest {
         homePageSteps.login("epam", "1234");
         homePageSteps.usernameOnTheHomePageShouldBe("PITER CHAILOVSKII");
         homePageSteps.pageTitleShouldBe("Home Page");
-        homePageSteps.headerSectionsShouldBe(EXPECTED_HEADER_SECTIONS_TEXT);
+        homePageSteps.headerSectionsShouldBe(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
         homePageSteps.numberOfImagesShouldBe(4);
         homePageSteps.textUnderImagesShouldBe(EXPECTED_UNDER_IMAGES_TEXT);
         homePageSteps.mainHeaderShouldBe(EXPECTED_MAIN_HEADER);
