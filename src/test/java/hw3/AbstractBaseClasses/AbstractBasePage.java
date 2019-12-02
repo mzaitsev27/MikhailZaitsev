@@ -22,7 +22,7 @@ public abstract class AbstractBasePage {
         driver.findElement(By.linkText(menuItemName)).click();
     }
 
-    public List headerMenuServiceItems() {
+    public List<String> headerMenuServiceItems() {
         List<WebElement> headerMenuServiceItems = driver.findElements(By.xpath("//ul[@class = 'dropdown-menu']/li"));
         List<String> headerMenuServiceItemsString = new ArrayList<>();
         for (int i =  0 ; i <  headerMenuServiceItems.size() ; i++) {
@@ -43,7 +43,7 @@ public abstract class AbstractBasePage {
         driver.findElement(By.linkText(dropdownItemName)).click();
     }
 
-    public List leftSectionMenuServiceItems() {
+    public List<String> leftSectionMenuServiceItems() {
         List<WebElement> leftSectionMenuServiceItems = driver.findElements(By.xpath("//ul[@class = 'sub']/li"));
         List<String> leftSectionMenuServiceItemsString = new ArrayList<>();
         for (int i =  0 ; i <  leftSectionMenuServiceItems.size() ; i++) {
