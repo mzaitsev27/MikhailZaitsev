@@ -2,5 +2,6 @@
 **/.idea
 **/.DS_Store
 **/*.iml
-**/.exe
-**/.jar
+**/*.exe
+**/*.jar
+

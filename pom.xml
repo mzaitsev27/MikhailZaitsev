@@ -26,7 +26,9 @@
 
     <profiles>
         <profile>
-            <id>Ex1</id>
+
+            <id>hw3.Ex1</id>
+
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -36,7 +38,7 @@
         </profile>
 
         <profile>
-            <id>Ex2</id>
+            <id>hw3.Ex2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
