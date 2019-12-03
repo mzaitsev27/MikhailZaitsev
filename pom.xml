@@ -18,6 +18,7 @@
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
         <common.io.version>2.6</common.io.version>
+        <selenide.version>5.5.0</selenide.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -26,9 +27,7 @@
 
     <profiles>
         <profile>
-
-            <id>hw3.Ex1</id>
-
+            <id>hw4.Ex_1</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -38,7 +37,7 @@
         </profile>
 
         <profile>
-            <id>hw3.Ex2</id>
+            <id>hw4.Ex_2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -73,6 +72,12 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
 
         <dependency>
