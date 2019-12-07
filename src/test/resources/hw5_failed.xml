@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ExerciseWithFail">
+
+
+    <test name="Exercise_2_Fail">
+        <classes>
+            <class name="hw5.StepsTests.FailTest">
+                <methods>
+                    <include name="FailTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

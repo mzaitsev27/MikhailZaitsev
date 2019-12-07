@@ -18,35 +18,52 @@
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
         <common.io.version>2.6</common.io.version>
+        <calculator.version>1.0</calculator.version>
         <selenide.version>5.5.0</selenide.version>
+        <allure.version>2.13.0</allure.version>
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
+        <jakson-annotations.version>2.9.9</jakson-annotations.version>
+        <aspectj.version>1.8.10</aspectj.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
     </properties>
 
     <profiles>
+
         <profile>
-            <id>hw4.Ex_1</id>
+            <id>Hw5_Ex1</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/Ex1_Test.xml</suite.file>
+                <suite.file>src/test/resources/hw5_Ex1.xml</suite.file>
             </properties>
         </profile>
 
         <profile>
-            <id>hw4.Ex_2</id>
+            <id>Hw5_Ex2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/Ex2_Test.xml</suite.file>
+                <suite.file>src/test/resources/hw5_Ex2.xml</suite.file>
             </properties>
         </profile>
-    </profiles>
 
+        <profile>
+            <id>Hw5_Fail</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/hw5_failed.xml</suite.file>
+            </properties>
+        </profile>
+
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -54,6 +71,14 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.tat.module4</groupId>
+            <artifactId>calculator</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/calculator-1.0.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -79,16 +104,11 @@
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>com.epam.tat.module4</groupId>
-            <artifactId>calculator</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/calculator-1.0.jar</systemPath>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
@@ -109,13 +129,32 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 </project>
