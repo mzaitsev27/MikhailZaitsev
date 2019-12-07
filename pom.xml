@@ -46,7 +46,7 @@
         <profile>
             <id>Hw5_Ex2</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/hw5_Ex2.xml</suite.file>
