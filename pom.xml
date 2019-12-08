@@ -41,17 +41,7 @@
             <properties>
                 <suite.file>src/test/resources/hw5_Ex1.xml</suite.file>
             </properties>
-        </profile>
-
-        <profile>
-            <id>Hw5_Fail</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>src/test/resources/hw5_failed.xml</suite.file>
-            </properties>
-        </profile>
+        </profile>     
 
     </profiles>
 
