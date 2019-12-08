@@ -19,6 +19,7 @@ public class FailTest extends AbstractBaseTest {
     public void setUp() {
         super.setUp();
         homePageSteps = new HomePageSteps(driver);
+        WebDriverSingleton.INSTANCE.setDriver(driver);
     }
 
     @Test
