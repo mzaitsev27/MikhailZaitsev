@@ -2,6 +2,7 @@ package hw4.Pages;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,16 +33,16 @@ public class TableWithPagesPage {
     private SelenideElement tenEntries;
 
     @FindBy(xpath = "//ul[@class = 'panel-body-list logs']/li")
-    private List<SelenideElement> logs;
+    private ElementsCollection logs;
 
     @FindBy(xpath = "//tbody/tr")
-    private List<SelenideElement> amountOfEntries;
+    private ElementsCollection amountOfEntries;
 
     @FindBy(xpath = "//input[@type = 'search']")
     private SelenideElement searchField;
 
     @FindBy(xpath = "//tbody/tr/td[2]")
-    private List<SelenideElement> nowColumn;
+    private ElementsCollection nowColumn;
 
     public void showEntriesByDefaultShouldBeFive() {
         $(showEntriesValues).shouldHave(text("1 to 5"));

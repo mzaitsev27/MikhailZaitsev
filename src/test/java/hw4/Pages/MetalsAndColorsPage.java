@@ -1,6 +1,7 @@
 package hw4.Pages;
 
 
+import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,40 +18,40 @@ public class MetalsAndColorsPage {
 
 
     @FindBy(xpath = "//section[@id = 'odds-selector']/p/label")
-    private List<WebElement> oddRadios;
+    private ElementsCollection oddRadios;
 
     @FindBy(xpath = "//section[@id = 'even-selector']/p/label")
-    private List<WebElement> evensRadios;
+    private ElementsCollection evensRadios;
 
     @FindBy(xpath = "//section[@id = 'elements-checklist']//label[@for]")
-    private List<WebElement> elementsCheckboxes;
+    private ElementsCollection elementsCheckboxes;
 
     @FindBy(xpath = "//button[@type = 'button'][@title = 'Colors']")
     private WebElement colorsMenu;
 
     @FindBy(xpath = "//ul[@class = 'dropdown-menu inner selectpicker'][@style]/li/a/span")
-    private List<WebElement> colorsOptions;
+    private ElementsCollection colorsOptions;
 
     @FindBy(xpath = "//button[@type = 'button'][@title = 'Metals']/span[2]")
     private WebElement metalsMenu;
 
     @FindBy(xpath = "//ul[@class = 'dropdown-menu inner selectpicker'][@style]/li/a/span")
-    private List<WebElement> metalsOptions;
+    private ElementsCollection metalsOptions;
 
     @FindBy(xpath = "//button[@type = 'button'][@aria-haspopup = 'true']")
     private WebElement vegetablesMenu;
 
     @FindBy(xpath = "//ul[@class = 'dropdown-menu'][@style]/li/a/input")
-    private List<WebElement> vegetablesCheckboxesInput;
+    private ElementsCollection vegetablesCheckboxesInput;
 
     @FindBy(xpath = "//ul[@class = 'dropdown-menu'][@style]/li/a/label")
-    private List<WebElement> vegetablesCheckboxes;
+    private ElementsCollection vegetablesCheckboxes;
 
     @FindBy(xpath = "//button[@id = 'submit-button']")
     private WebElement submitButton;
 
     @FindBy(xpath = "//ul[@class = 'panel-body-list results']/li")
-    private List<WebElement> results;
+    private ElementsCollection results;
 
 
     public void setSummaryValues(List<Integer> values) {
