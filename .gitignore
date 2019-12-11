@@ -4,4 +4,8 @@
 **/*.iml
 **/*.exe
 **/*.jar
+**/*.yml
+**/build
+**/allure-results
+**/.allure
 

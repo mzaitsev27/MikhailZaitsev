@@ -1,7 +1,9 @@
-package hw3.StepsTests;
+package hw5.StepsTests;
 
 import hw3.AbstractBaseClasses.AbstractBaseTest;
-import hw3.Pages.HomePage.HomePageSteps;
+import hw5.HomePage.HomePageSteps;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,6 +21,8 @@ public class Ex1_Test extends AbstractBaseTest {
         homePageSteps = new HomePageSteps(driver);
     }
 
+    @Feature("Ex1_Feature")
+    @Story("Ex1_Story")
     @Test
     public void Ex1_Test() {
         homePageSteps.open("https://epam.github.io/JDI/index.html");
@@ -35,8 +39,6 @@ public class Ex1_Test extends AbstractBaseTest {
         homePageSteps.subHeaderShouldBeDisplayed();
         homePageSteps.leftSectionShouldBeDisplayed();
         homePageSteps.footerShouldBeDisplayed();
-
-
     }
 }
 
