@@ -7,6 +7,7 @@ import io.qameta.allure.testng.AllureTestNg;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import hw5.WebDriverSingleton;
 
 
 @Listeners({AllureTestNg.class, AttachmentListener.class})
@@ -19,6 +20,7 @@ public class FailTest extends AbstractBaseTest {
     public void setUp() {
         super.setUp();
         homePageSteps = new HomePageSteps(driver);
+        WebDriverSingleton.INSTANCE.setDriver(driver);
     }
 
     @Test

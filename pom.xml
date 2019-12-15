@@ -42,7 +42,8 @@
             <properties>
                 <suite.file>src/test/resources/hw6_RunTests.xml</suite.file>
             </properties>
-        </profile>
+          <profile>
+
 
     </profiles>
 

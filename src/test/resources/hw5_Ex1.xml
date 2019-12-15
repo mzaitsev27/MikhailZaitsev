@@ -1,5 +1,5 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Exercise1">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Exercise">
 
 
     <test name="Exercise1">
@@ -7,6 +7,26 @@
             <class name="hw5.StepsTests.Ex1_Test">
                 <methods>
                     <include name="Ex1_Test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Exercise2">
+        <classes>
+            <class name="hw5.StepsTests.Ex2_Test">
+                <methods>
+                    <include name="Ex2_Test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Exercise_2_Fail">
+        <classes>
+            <class name="hw5.StepsTests.FailTest">
+                <methods>
+                    <include name="FailTest"/>
                 </methods>
             </class>
         </classes>
