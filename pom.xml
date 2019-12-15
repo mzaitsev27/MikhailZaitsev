@@ -24,6 +24,7 @@
         <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
         <jakson-annotations.version>2.9.9</jakson-annotations.version>
         <aspectj.version>1.8.10</aspectj.version>
+        <cucumber.version>1.2.5</cucumber.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -34,14 +35,15 @@
     <profiles>
 
         <profile>
-            <id>Hw5_Ex1</id>
+            <id>Hw6_RunTest</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/hw5_Ex1.xml</suite.file>
+                <suite.file>src/test/resources/hw6_RunTests.xml</suite.file>
             </properties>
-        </profile>     
+          <profile>
+
 
     </profiles>
 
@@ -89,6 +91,21 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
