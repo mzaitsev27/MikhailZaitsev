@@ -3,7 +3,7 @@ package hw_jdi.DataProvider;
 import java.util.List;
 
 
-public class Data {
+public class MetalsAndColorsData {
 
     public List<Integer> summary;
     public List<String> elements;
@@ -27,7 +27,7 @@ public class Data {
         return color;
     }
 
-    public String getMetal() {
+    public String getMetals() {
         return metals;
     }
 

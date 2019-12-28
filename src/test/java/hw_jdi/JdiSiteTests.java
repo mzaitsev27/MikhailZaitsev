@@ -2,7 +2,7 @@ package hw_jdi;
 
 import com.epam.jdi.light.driver.WebDriverUtils;
 import com.epam.jdi.light.elements.init.PageFactory;
-import hw_jdi.DataProvider.Data;
+import hw_jdi.DataProvider.MetalsAndColorsData;
 import hw_jdi.DataProvider.MetalsAndColorsDataProvider;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -25,12 +25,12 @@ public class JdiSiteTests {
 
 
     @Test(dataProvider = "Metals And Colors Data Provider", dataProviderClass = MetalsAndColorsDataProvider.class)
-    public void jdiTest(Data data) {
+    public void jdiTest(MetalsAndColorsData metalsAndColorsData) {
         JdiSite.open();
         JdiSite.login(ROMAN);
         JdiSite.openMetalsAndColorsWithHeaderMenu();
-        JdiSite.fillMetalsAndColorsData(data);
-        JdiSite.assertMetalsAndColorsData(data);
+        JdiSite.metalsAndColorsPage.fillMetalsAndColorsData(metalsAndColorsData);
+        JdiSite.metalsAndColorsPage.assertMetalsAndColorsData(metalsAndColorsData);
         JdiSite.logout();
     }
 }
